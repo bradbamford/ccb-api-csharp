@@ -21,7 +21,9 @@ namespace ChurchCommunityBuilder.Api.Tests.Integration {
             var results = base.ApiClient.People.Individuals.Search(qo);
 
             results.Individuals.Count.ShouldBeGreaterThan(0);
-            results.Individuals[0].FamilyMembers.Count.ShouldBeGreaterThan(0);
+            var individual = results.Individuals[0];
+            
+            individual.FamilyMembers.Count.ShouldBeGreaterThan(0);
         }
 
         [Test]

@@ -16,9 +16,10 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
             return this.Execute("individual_search", qo);
         }
 
-        public Individual Get(int id) {
+        public Individual Get(int id, bool includeInactive) {
             var qo = new IndividualQO();
             qo.IndividualID = id;
+            qo.IncludeInactive = includeInactive;
             var individuals = this.Execute("individual_profile_from_id", qo);
 
             if (individuals != null && individuals.Individuals.Count > 0) {

@@ -9,13 +9,14 @@ using ChurchCommunityBuilder.Api;
 using ChurchCommunityBuilder.Api.People.Entity;
 using ChurchCommunityBuilder.Api.People.QueryObject;
 
-namespace ChurchCommunityBuilder.Api.Tests.Integration.MobeilCarriers {
+namespace ChurchCommunityBuilder.Api.Tests.Integration {
     [TestFixture]
-    public class ListTests : BaseTest {
+    public class CustomFieldListTests : BaseTest {
         [Test]
-        public void integration_mobile_carriers_list() {
-            var results = base.ApiClient.People.MobileCarriers.List();
-            results.MobileCarriers.Count.ShouldBeGreaterThan(0);
+        public void integration_user_custom_field_list() {
+            var results = base.ApiClient.People.CustomFields.List();
+
+            results.CustomFields.Count.ShouldBeGreaterThan(0);
         }
     }
 }

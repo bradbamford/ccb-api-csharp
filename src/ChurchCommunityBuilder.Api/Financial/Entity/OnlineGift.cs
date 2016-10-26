@@ -75,9 +75,9 @@ namespace ChurchCommunityBuilder.Api.Financial.Entity {
                 formValues.Add("merchant_authorization_code", this.MerchantAuthorizationCode);
             }
 
-            //if (!string.IsNullOrEmpty(this.MerchantName)) {
-            //    formValues.Add("merchant_name", this.MerchantName);
-            //}
+            if (!string.IsNullOrEmpty(this.MerchantName)) {
+                formValues.Add("merchant_name", this.MerchantName);
+            }
 
             if (!string.IsNullOrEmpty(this.MerchantNotes)) {
                 formValues.Add("merchant_notes", this.MerchantNotes);

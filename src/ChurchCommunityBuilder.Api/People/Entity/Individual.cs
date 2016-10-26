@@ -20,6 +20,9 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
             this.Addresses = new List<Address>();
             this.Phones = new List<Phone>();
             this.MembershipType = new Lookup();
+            this.UserDefinedDateFields = new List<UserDefinedDateField>();
+            this.UserDefinedPulldownFields = new List<UserDefinedPulldownField>();
+            this.UserDefinedTextFields = new List<UserDefiniedTextField>();
         }
         [XmlAttribute("id")]
         public int? ID { get; set; }
@@ -151,6 +154,18 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
         [XmlElement("membership_type")]
         public Lookup MembershipType { get; set; }
 
+        [XmlArrayItem("user_defined_text_field", typeof(UserDefiniedTextField))]
+        [XmlArray("user_defined_text_fields")]
+        public List<UserDefiniedTextField> UserDefinedTextFields { get; set; }
+
+        [XmlArrayItem("user_defined_date_field", typeof(UserDefinedDateField))]
+        [XmlArray("user_defined_date_fields")]
+        public List<UserDefinedDateField> UserDefinedDateFields { get; set; }
+
+        [XmlArrayItem("user_defined_pulldown_field", typeof(UserDefinedPulldownField))]
+        [XmlArray("user_defined_pulldown_fields")]
+        public List<UserDefinedPulldownField> UserDefinedPulldownFields { get; set; }
+
         public string GetFormValues() {
             var formValues = new FormValuesBuilder();
 
@@ -238,10 +253,30 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
                 }
             }
 
+            if (this.UserDefinedTextFields != null && this.UserDefinedTextFields.Count > 0) {
+                foreach (var field in this.UserDefinedTextFields) {
+                    formValues.Add(field.Name, field.Text);
+                }
+            }
+
+            if (this.UserDefinedDateFields != null && this.UserDefinedDateFields.Count > 0) {
+                foreach(var field in this.UserDefinedDateFields) {
+                    if (field.Date.HasValue) {
+                        formValues.Add(field.Name, field.Date.Value.ToString("yyyy-MM-dd"));
+                    }
+                    else {
+                        formValues.Add(field.Name, "");
+                    }
+                }
+            }
+
+            if (this.UserDefinedPulldownFields != null && this.UserDefinedPulldownFields.Count > 0) {
+                foreach (var field in this.UserDefinedPulldownFields) {
+                    formValues.Add(field.Name, field.Selection.ID.ToString());
+                }
+            }
+
             return formValues.ToString();
-        
-        
-        
         }
     }
 }

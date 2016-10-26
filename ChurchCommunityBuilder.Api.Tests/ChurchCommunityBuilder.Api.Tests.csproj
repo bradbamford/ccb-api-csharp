@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChurchCommunityBuilder.Api.Tests</RootNamespace>
     <AssemblyName>ChurchCommunityBuilder.Api.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -17,6 +17,7 @@
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Integration\BaseTest.cs" />
     <Compile Include="Integration\Campus\CampusListTests.cs" />
+    <Compile Include="Integration\CustomFields\CustomFieldListTests.cs" />
     <Compile Include="Integration\Errors\CredentialsTest.cs" />
     <Compile Include="Integration\Events\CalendarTests.cs" />
     <Compile Include="Integration\Events\EventListTests.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Integration\MobeilCarriers\ListTests.cs" />
     <Compile Include="Integration\Process\ProcessListTests.cs" />
     <Compile Include="Integration\Process\QueueManagerSearchTests.cs" />
+    <Compile Include="Integration\UserDefinedField\UserDefinedFieldListTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

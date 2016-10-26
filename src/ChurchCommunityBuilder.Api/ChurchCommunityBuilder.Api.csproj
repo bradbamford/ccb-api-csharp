@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChurchCommunityBuilder.Api</RootNamespace>
     <AssemblyName>ChurchCommunityBuilder.Api</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\52projects-library\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -109,6 +110,8 @@
     <Compile Include="People\Entity\Campus.cs" />
     <Compile Include="People\Entity\CampusCollection.cs" />
     <Compile Include="People\Entity\Country.cs" />
+    <Compile Include="People\Entity\CustomField.cs" />
+    <Compile Include="People\Entity\CustomFieldCollection.cs" />
     <Compile Include="People\Entity\Family.cs" />
     <Compile Include="People\Entity\FamilyCollection.cs" />
     <Compile Include="People\Entity\FamilyMember.cs" />
@@ -119,16 +122,23 @@
     <Compile Include="People\Entity\MobileCarrier.cs" />
     <Compile Include="People\Entity\MobileCarrierCollection.cs" />
     <Compile Include="People\Entity\Phone.cs" />
+    <Compile Include="People\Entity\UserDefinedDateField.cs" />
+    <Compile Include="People\Entity\UserDefinedField.cs" />
+    <Compile Include="People\Entity\UserDefinedFieldCollection.cs" />
+    <Compile Include="People\Entity\UserDefinedPulldownField.cs" />
+    <Compile Include="People\Entity\UserDefiniedTextField.cs" />
     <Compile Include="People\Enum\FamilyPosition.cs" />
     <Compile Include="People\QueryObject\FamilyQO.cs" />
     <Compile Include="People\QueryObject\IndividualQO.cs" />
     <Compile Include="People\Sets\Abilities.cs" />
     <Compile Include="People\Sets\Campuses.cs" />
+    <Compile Include="People\Sets\CustomFields.cs" />
     <Compile Include="People\Sets\Families.cs" />
     <Compile Include="People\Sets\HowTheyHeard.cs" />
     <Compile Include="People\Sets\Individuals.cs" />
     <Compile Include="People\Sets\MembershipTypes.cs" />
     <Compile Include="People\Sets\MobileCarriers.cs" />
+    <Compile Include="People\Sets\UserDefinedFields.cs" />
     <Compile Include="Processes\Entity\ProcessIndividualCollection.cs" />
     <Compile Include="Processes\Entity\ProcessIndividual.cs" />
     <Compile Include="Processes\Entity\Process.cs" />

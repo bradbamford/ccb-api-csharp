@@ -18,6 +18,8 @@ namespace ChurchCommunityBuilder.Api.Realms {
         private ChurchCommunityBuilder.Api.People.Sets.HowTheyHeardSet _howTheyHeardSet;
         private ChurchCommunityBuilder.Api.People.Sets.Abilities _abilitySet;
         private ChurchCommunityBuilder.Api.People.Sets.MobileCarriers _mobileCarrierSet;
+        private ChurchCommunityBuilder.Api.People.Sets.UserDefinedFields _userDefinedFieldSet;
+        private ChurchCommunityBuilder.Api.People.Sets.CustomFields _customFields;
 
         #region Sets
         public ChurchCommunityBuilder.Api.People.Sets.Individuals Individuals {
@@ -87,6 +89,26 @@ namespace ChurchCommunityBuilder.Api.Realms {
                 }
 
                 return _mobileCarrierSet;
+            }
+        }
+
+        public ChurchCommunityBuilder.Api.People.Sets.UserDefinedFields UserDefinedFields {
+            get {
+                if (_userDefinedFieldSet == null) {
+                    _userDefinedFieldSet = new People.Sets.UserDefinedFields(string.Format(API_URL, base.ChurchCode), base.UserName, base.Password);
+                }
+
+                return _userDefinedFieldSet;
+            }
+        }
+
+        public ChurchCommunityBuilder.Api.People.Sets.CustomFields CustomFields {
+            get {
+                if (_customFields == null) {
+                    _customFields = new People.Sets.CustomFields(string.Format(API_URL, base.ChurchCode), base.UserName, base.Password);
+                }
+
+                return _customFields;
             }
         }
         #endregion Sets
