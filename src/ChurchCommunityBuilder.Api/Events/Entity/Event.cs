@@ -74,7 +74,7 @@ namespace ChurchCommunityBuilder.Api.Events.Entity {
         [XmlArray("guest")]
         public List<Guest> GuestList { get; set; }
 
-        //TODO :: undestand resoureces
+        //TODO :: understand resources
         // Resources are not returned, maybe reach out to CCB
 
         [XmlElement("setup")]
@@ -88,7 +88,13 @@ namespace ChurchCommunityBuilder.Api.Events.Entity {
 
         [XmlElement("modifier")]
         public Lookup Modifier { get; set; }
+        
+        [XmlElement("listed")]
+        public bool Listed { get; set; }
 
+        [XmlElement("public_calendar_listed")]
+        public bool PublicCalendarListed { get; set; }
+        
         [XmlElement("created")]
         public DateTime Created { get; set; }
 
@@ -114,6 +120,10 @@ namespace ChurchCommunityBuilder.Api.Events.Entity {
 
             if (!string.IsNullOrEmpty(this.Phone.Value)) {
                 formValues.Add("contact_phone", this.Phone.Value);
+            }
+
+            if (!string.IsNullOrEmpty(this.Location.Name)){
+                formValues.Add("location_name", this.Location.Name);
             }
 
             if (!string.IsNullOrEmpty(this.Location.Line1)) {

@@ -27,6 +27,7 @@ namespace ChurchCommunityBuilder.Api.Groups.Entity {
             this.MeetingTime = new Lookup();
             this.Creator = new Lookup();
             this.Modifier = new Lookup();
+
         }
         [XmlAttribute("id")]
         public int ID { get; set; }
@@ -49,6 +50,12 @@ namespace ChurchCommunityBuilder.Api.Groups.Entity {
         [XmlArrayItem("leaders", typeof(Participant))]
         [XmlArray("leader")]
         public List<Participant> Leaders { get; set; }
+
+        [XmlElement("coach")]
+        public Participant Coach { get; set; }
+
+        [XmlElement("director")]
+        public Participant Director { get; set; }
 
         [XmlArrayItem("participants", typeof(Participant))]
         [XmlArray("participant")]
@@ -102,6 +109,12 @@ namespace ChurchCommunityBuilder.Api.Groups.Entity {
 
         [XmlElement("listed")]
         public bool Listed { get; set; }
+
+        [XmlElement("public_search_listed")]
+        public bool PublicSearchListed { get; set; }
+
+        [XmlElement("inactive")]
+        public bool Inactive { get; set; }
 
         [XmlElement("creator")]
         public Lookup Creator { get; set; }
@@ -201,7 +214,9 @@ namespace ChurchCommunityBuilder.Api.Groups.Entity {
             }
             formValues.Add("campus_id", this.Campus.CCBID.ToString())
                       .Add("main_leader_id", this.MainLeader.ID)
-                      .Add("description", this.Description);
+                      .Add("description", this.Description)
+                      .Add("listed", this.Listed)
+                      .Add("public_search_listed", this.PublicSearchListed);
 
             if (this.GroupType.ID.HasValue) {
                 formValues.Add("group_type_id", this.GroupType.ID);
@@ -218,7 +233,7 @@ namespace ChurchCommunityBuilder.Api.Groups.Entity {
             if (!string.IsNullOrEmpty(this.GroupCapacity)) {
                 formValues.Add("group_capacity", this.GroupCapacity);
             }
-            
+
             return formValues.ToString();
         }
     }

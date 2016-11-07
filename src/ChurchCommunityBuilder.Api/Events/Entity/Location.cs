@@ -10,6 +10,9 @@ using ChurchCommunityBuilder.Api.Entity;
 namespace ChurchCommunityBuilder.Api.Events.Entity {
     [XmlRoot("location")]
     public class Location {
+        [XmlElement("name")]
+        public string Name { get; set; }
+
         [XmlElement("street_address")]
         public string StreetAddress { get; set; }
 
