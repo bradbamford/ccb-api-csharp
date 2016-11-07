@@ -16,6 +16,13 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
             return this.Execute("individual_search", qo);
         }
 
+        public IndividualCollection ExecuteSearch(int id)
+        {
+            var parameters = new Dictionary<string, string> {{"id", id.ToString()}};
+
+            return this.Execute("execute_search", parameters);
+        }
+
         public Individual Get(int id, bool includeInactive) {
             var qo = new IndividualQO();
             qo.IndividualID = id;
