@@ -76,5 +76,20 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
 
             return returnID;
         }
+
+        public Individual LoginProfile(string username, string password)
+        {
+            var parameters = new Dictionary<string, string>();
+            parameters.Add("login", username);
+            parameters.Add("password", password);
+
+            var individuals = this.Execute("individual_profile_from_login_password", parameters);
+            if (individuals != null && individuals.Individuals.Count > 0)
+            {
+                return individuals.Individuals[0];
+            }
+
+            return null;
+        }
     }
 }
