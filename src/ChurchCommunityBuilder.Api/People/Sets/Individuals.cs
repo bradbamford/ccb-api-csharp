@@ -7,6 +7,7 @@ using ChurchCommunityBuilder.Api;
 using ChurchCommunityBuilder.Api.People.Entity;
 using ChurchCommunityBuilder.Api.People.QueryObject;
 using ChurchCommunityBuilder.Api.Entity;
+using ChurchCommunityBuilder.Api.Util;
 
 namespace ChurchCommunityBuilder.Api.People.Sets {
     public class Individuals : BaseApiSet<IndividualCollection> {
@@ -64,14 +65,20 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
 
         public int Login(string username, string password) {
             int returnID = 0;
-            var parameters = new Dictionary<string, string>();
-            parameters.Add("login", username);
-            parameters.Add("password", password);
 
-            var result = this.Execute<Response>("individual_id_from_login_password", parameters);
+            var formValues = new FormValuesBuilder();
+            if (!string.IsNullOrEmpty(username))
+                formValues.Add("login", username);
 
-            if (result.Items.Count > 0) {
-                returnID = result.Items[0].ID.Value;
+            if (!string.IsNullOrEmpty(password))
+                formValues.Add("password", password);
+
+            var result = this.Execute("individual_id_from_login_password", formValues.ToString());
+
+            if (result.Items.Count > 0)
+            {
+                var id = result.Items[0].ID;
+                if (id != null) returnID = id.Value;
             }
 
             return returnID;
@@ -79,15 +86,18 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
 
         public Individual LoginProfile(string username, string password)
         {
-            var parameters = new Dictionary<string, string>();
-            parameters.Add("login", username);
-            parameters.Add("password", password);
+            var formValues = new FormValuesBuilder();
 
-            var individuals = this.Execute("individual_profile_from_login_password", parameters);
+            if (!string.IsNullOrEmpty(username))
+                formValues.Add("login", username);
+            
+            if (!string.IsNullOrEmpty(password))
+                formValues.Add("password", password);
+            
+
+            var individuals = this.Execute("individual_profile_from_login_password", formValues.ToString());
             if (individuals != null && individuals.Individuals.Count > 0)
-            {
                 return individuals.Individuals[0];
-            }
 
             return null;
         }

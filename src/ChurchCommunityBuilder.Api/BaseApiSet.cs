@@ -45,6 +45,33 @@ namespace ChurchCommunityBuilder.Api {
             return results.Data;
         }
 
+        public T Execute(string serviceName, string formValues, Dictionary<string, string> parameters)
+        {
+            var postUrl = _baseUrl + "?srv=" + serviceName;
+
+            foreach (var pair in parameters)
+                postUrl += "&" + pair.Key + "=" + pair.Value;
+            
+            this._parameters = new Dictionary<string, string>();
+            var request = CreateRestRequest(Method.POST, postUrl);
+
+            request.AddParameter("application/x-www-form-urlencoded", formValues, ParameterType.RequestBody);
+            var results = ExecuteRequest(request);
+            return results.Data;
+        }
+
+        public T Execute(string serviceName, string formValues)
+        {
+            var postUrl = _baseUrl + "?srv=" + serviceName;
+
+            this._parameters = new Dictionary<string, string>();
+            var request = CreateRestRequest(Method.POST, postUrl);
+
+            request.AddParameter("application/x-www-form-urlencoded", formValues, ParameterType.RequestBody);
+            var results = ExecuteRequest(request);
+            return results.Data;
+        }
+
         public T Execute(string serviceName, QueryObject qo) {
             this._parameters = new Dictionary<string, string>();
             this._parameters.Add("srv", serviceName);
@@ -71,6 +98,7 @@ namespace ChurchCommunityBuilder.Api {
             var results = ExecuteGenericRequest<S>(request);
             return results.Data;
         }
+        
 
         internal T Update(string serviceName, string formValues, Dictionary<string, string> parameters) {
             var updateUrl = _baseUrl + "?srv=" + serviceName;
