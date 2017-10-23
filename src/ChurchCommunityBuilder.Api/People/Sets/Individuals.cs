@@ -37,6 +37,14 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
             return null;
         }
 
+        public IndividualCollection Get(DateTime lastModifiedDate, bool includeInactive)
+        {
+            var qo = new IndividualQO();
+            qo.ModifiedSince = lastModifiedDate;
+            qo.IncludeInactive = includeInactive;
+            return this.Execute("individual_profiles", qo);
+        }
+
         public Individual Update(Individual entity) {
             if (entity.ID <= 0) {
                 throw new Exception("An ID is required when updating an individual");

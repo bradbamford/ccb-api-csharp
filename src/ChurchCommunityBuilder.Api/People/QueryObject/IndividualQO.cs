@@ -39,5 +39,10 @@ namespace ChurchCommunityBuilder.Api.People.QueryObject {
 
         [QO("max_results")]
         public int? MaxResults { get; set; }
+
+        [QO("modified_since")]
+        public DateTime? ModifiedSince { get; set; }
+
+
     }
 }
