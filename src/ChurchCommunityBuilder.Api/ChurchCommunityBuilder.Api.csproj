@@ -31,13 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AzureDev|AnyCPU'">
+    <OutputPath>bin\AzureDev\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\52projects-library\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <HintPath>..\..\..\52projects-library\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -146,6 +149,7 @@
     <Compile Include="Processes\Entity\ProcessCollection.cs" />
     <Compile Include="Processes\Entity\ProcessQueue.cs" />
     <Compile Include="Processes\Entity\ProcessQueueCollection.cs" />
+    <Compile Include="Processes\Entity\QueueCollection.cs" />
     <Compile Include="Processes\Entity\QueueManager.cs" />
     <Compile Include="Processes\Entity\QueueManagerCollection.cs" />
     <Compile Include="Processes\QueryObject\ProcessQO.cs" />

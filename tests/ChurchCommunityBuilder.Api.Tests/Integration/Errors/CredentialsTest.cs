@@ -13,7 +13,7 @@ namespace ChurchCommunityBuilder.Api.Tests.Integration.Errors {
     [TestFixture]
     public class CredentialsTest {
         private ApiClient _apiClient;
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Setup() {
             _apiClient = new ApiClient("multisites", "chadmeyer", "Psalms46:10");
         }

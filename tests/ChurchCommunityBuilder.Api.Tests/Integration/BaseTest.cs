@@ -13,7 +13,7 @@ namespace ChurchCommunityBuilder.Api.Tests.Integration {
     [TestFixture]
     public class BaseTest {
         public ApiClient ApiClient;
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public virtual void Setup() {
             ApiClient = new ApiClient("multisite", "focusmissions", "Psalms46:10");
         }

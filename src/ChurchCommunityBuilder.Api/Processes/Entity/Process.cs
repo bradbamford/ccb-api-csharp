@@ -39,27 +39,11 @@ namespace ChurchCommunityBuilder.Api.Processes.Entity {
         [XmlElement("modifier")]
         public Lookup Modifier { get; set; }
 
-        [XmlIgnore]
-        public DateTime? CreatedDate {
-            get {
-                DateTime value = DateTime.MinValue;
-
-                if (DateTime.TryParse(this.CreatedString, out value)) {
-                    return value;
-                }
-
-                return null;
-            }
-            set {
-                if (value.HasValue) {
-                    this.CreatedString = value.Value.ToString();
-                }
-            }
-        }
+        [XmlElement("created")]
+        public DateTime? Created { get; set; }
 
         private string _createdString = string.Empty;
-        [XmlElement("created")]
-        internal string CreatedString {
+        public string CreatedString {
             get { return _createdString; }
             set { _createdString = value; }
         }
@@ -84,7 +68,7 @@ namespace ChurchCommunityBuilder.Api.Processes.Entity {
 
         private string _modifiedString = string.Empty;
         [XmlElement("modified")]
-        internal string ModifiedString {
+        public string ModifiedString {
             get { return _modifiedString; }
             set { _modifiedString = value; }
         }
