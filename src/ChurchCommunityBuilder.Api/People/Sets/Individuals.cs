@@ -24,6 +24,11 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
             return this.Execute("execute_search", parameters);
         }
 
+        public IndividualCollection List(IndividualQO qo)
+        {
+            return this.Execute("individual_profiles", qo);
+        }
+
         public Individual Get(int id, bool includeInactive) {
             var qo = new IndividualQO();
             qo.IndividualID = id;
