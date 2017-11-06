@@ -127,3 +127,4 @@ web/MissionTrips.Web/assets/css/.sass-cache/1afcc90758de4e8aa0352fcc531be4f394df
 *.dacpac
 *.dbmdl
 *.orig
+.vs

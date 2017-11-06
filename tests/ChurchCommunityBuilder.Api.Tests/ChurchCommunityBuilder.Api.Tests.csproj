@@ -83,6 +83,8 @@
     <Compile Include="Integration\Individual\LoginTests.cs" />
     <Compile Include="Integration\Individual\MembershipTypeListTests.cs" />
     <Compile Include="Integration\Individual\UpdateIndividualTest.cs" />
+    <Compile Include="Integration\People\GetTests.cs" />
+    <Compile Include="Integration\People\SearchTests.cs" />
     <Compile Include="Integration\Process\ProcessListTests.cs" />
     <Compile Include="Integration\Process\QueueManagerSearchTests.cs" />
     <Compile Include="Integration\UserDefinedField\UserDefinedFieldListTests.cs" />
