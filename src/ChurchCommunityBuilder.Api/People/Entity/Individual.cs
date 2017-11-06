@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ChurchCommunityBuilder.Api.Entity;
-using System.Xml;
 using System.Xml.Serialization;
 using ChurchCommunityBuilder.Api.People.Enum;
-using System.Web;
 using ChurchCommunityBuilder.Api.Util;
 
 namespace ChurchCommunityBuilder.Api.People.Entity {

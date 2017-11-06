@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChurchCommunityBuilder.Api;
 using ChurchCommunityBuilder.Api.People.Entity;
 using ChurchCommunityBuilder.Api.People.QueryObject;
 using ChurchCommunityBuilder.Api.Entity;
@@ -29,6 +25,14 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
             return this.Execute("individual_profiles", qo);
         }
 
+        public IndividualCollection List(DateTime lastModifiedDate, bool includeInactive)
+        {
+            var qo = new IndividualQO();
+            qo.ModifiedSince = lastModifiedDate;
+            qo.IncludeInactive = includeInactive;
+            return this.Execute("individual_profiles", qo);
+        }
+
         public Individual Get(int id, bool includeInactive) {
             var qo = new IndividualQO();
             qo.IndividualID = id;
@@ -40,14 +44,6 @@ namespace ChurchCommunityBuilder.Api.People.Sets {
             }
 
             return null;
-        }
-
-        public IndividualCollection Get(DateTime lastModifiedDate, bool includeInactive)
-        {
-            var qo = new IndividualQO();
-            qo.ModifiedSince = lastModifiedDate;
-            qo.IncludeInactive = includeInactive;
-            return this.Execute("individual_profiles", qo);
         }
 
         public Individual Update(Individual entity) {
