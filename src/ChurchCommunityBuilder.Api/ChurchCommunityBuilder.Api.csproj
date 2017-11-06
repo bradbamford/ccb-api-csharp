@@ -128,6 +128,8 @@
     <Compile Include="People\Entity\HowTheyHeardCollection.cs" />
     <Compile Include="People\Entity\Individual.cs" />
     <Compile Include="People\Entity\IndividualCollection.cs" />
+    <Compile Include="People\Entity\MergedIndividual.cs" />
+    <Compile Include="People\Entity\MergedIndividualCollection.cs" />
     <Compile Include="People\Entity\MobileCarrier.cs" />
     <Compile Include="People\Entity\MobileCarrierCollection.cs" />
     <Compile Include="People\Entity\Phone.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="People\Sets\HowTheyHeard.cs" />
     <Compile Include="People\Sets\Individuals.cs" />
     <Compile Include="People\Sets\MembershipTypes.cs" />
+    <Compile Include="People\Sets\MergedIndividuals.cs" />
     <Compile Include="People\Sets\MobileCarriers.cs" />
     <Compile Include="People\Sets\UserDefinedFields.cs" />
     <Compile Include="Processes\Entity\ProcessIndividualCollection.cs" />

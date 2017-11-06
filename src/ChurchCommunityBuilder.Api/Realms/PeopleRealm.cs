@@ -20,6 +20,7 @@ namespace ChurchCommunityBuilder.Api.Realms {
         private ChurchCommunityBuilder.Api.People.Sets.MobileCarriers _mobileCarrierSet;
         private ChurchCommunityBuilder.Api.People.Sets.UserDefinedFields _userDefinedFieldSet;
         private ChurchCommunityBuilder.Api.People.Sets.CustomFields _customFields;
+        private ChurchCommunityBuilder.Api.People.Sets.MergedIndividuals _mergedIndividualSet;
 
         #region Sets
         public ChurchCommunityBuilder.Api.People.Sets.Individuals Individuals {
@@ -111,6 +112,20 @@ namespace ChurchCommunityBuilder.Api.Realms {
                 return _customFields;
             }
         }
+
+        public ChurchCommunityBuilder.Api.People.Sets.MergedIndividuals MergedIndividuals
+        {
+            get
+            {
+                if (_mergedIndividualSet == null)
+                {
+                    _mergedIndividualSet = new People.Sets.MergedIndividuals(string.Format(API_URL, base.ChurchCode), base.UserName, base.Password);
+                }
+
+                return _mergedIndividualSet;
+            }
+        }
+
         #endregion Sets
     }
 }
