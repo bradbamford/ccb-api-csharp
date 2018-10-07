@@ -15,6 +15,7 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
             this.FamilyMembers = new List<FamilyMember>();
             this.Addresses = new List<Address>();
             this.Phones = new List<Phone>();
+            this.MobileCarrier = new Lookup();
             this.MembershipType = new Lookup();
             this.UserDefinedDateFields = new List<UserDefinedDateField>();
             this.UserDefinedPulldownFields = new List<UserDefinedPulldownField>();
@@ -119,12 +120,18 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
         [XmlElement("allergies")]
         public string Allergies { get; set; }
 
+        [XmlElement("confirmed_no_allergies")]
+        public bool ConfirmedNoAllergies { get; set; }
+
         [XmlElement("addresses")]
         public List<Address> Addresses { get; set; }
 
         [XmlArrayItem("phone", typeof(Phone))]
         [XmlArray("phones")]
         public List<Phone> Phones { get; set; }
+
+        [XmlElement("mobile_carrier")]
+        public Lookup MobileCarrier { get; set; }
 
         [XmlElement("gender")]
         public string Gender { get; set; }
@@ -138,6 +145,9 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
         [XmlElement("anniversary")]
         public DateTime? Anniversary { get; set; }
 
+        [XmlElement("baptized")]
+        public bool Baptized { get; set; }
+
         [XmlElement("deceased")]
         public DateTime? Deceased { get; set; }
 
@@ -149,6 +159,27 @@ namespace ChurchCommunityBuilder.Api.People.Entity {
 
         [XmlElement("membership_type")]
         public Lookup MembershipType { get; set; }
+
+        [XmlElement("receive_email_from_church")]
+        public bool ReceiveEmailFromChurch { get; set; }
+        [XmlElement("default_new_group_messages")]
+        public string DefaultNewGroupMessages { get; set; }
+        [XmlElement("default_new_group_comments")]
+        public string DefaultNewGroupComments { get; set; }
+        [XmlElement("default_new_group_digest")]
+        public string DefaultNewGroupDigest { get; set; }
+        [XmlElement("default_new_group_sms")]
+        public string DefaultNewGroupSms { get; set; }
+        [XmlElement("active")]
+        public bool Active { get; set; }
+        [XmlElement("creator")]
+        public Lookup Creator { get; set; }
+        [XmlElement("modifier")]
+        public Lookup Modifier { get; set; }
+        [XmlElement("created")]
+        public DateTime? Created { get; set; }
+        [XmlElement("modified")]
+        public DateTime? Modified { get; set; }
 
         [XmlArrayItem("user_defined_text_field", typeof(UserDefiniedTextField))]
         [XmlArray("user_defined_text_fields")]
