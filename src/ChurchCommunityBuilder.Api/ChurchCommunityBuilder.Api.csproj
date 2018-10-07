@@ -1,196 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2D4E6F4D-69D6-4BF3-AB51-97F172171E6A}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChurchCommunityBuilder.Api</RootNamespace>
-    <AssemblyName>ChurchCommunityBuilder.Api</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AzureDev|AnyCPU'">
-    <OutputPath>bin\AzureDev\</OutputPath>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Serialization" />
+    <None Remove="app.config" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="ApiClient.cs" />
-    <Compile Include="Entity\ChurchCommunityBuilderResponse.cs" />
-    <Compile Include="Events\Entity\Attendee.cs" />
-    <Compile Include="Events\Entity\AttendeeCollection.cs" />
-    <Compile Include="Events\Entity\AttendanceEvent.cs" />
-    <Compile Include="Events\Entity\AttendanceEventCollection.cs" />
-    <Compile Include="Events\QueryObject\AttendanceQO.cs" />
-    <Compile Include="Events\Sets\Attendance.cs" />
-    <Compile Include="Attributes\QOAttribute.cs" />
-    <Compile Include="BaseApiSet.cs" />
-    <Compile Include="Entity\BaseEntity.cs" />
-    <Compile Include="Events\Entity\Form.cs" />
-    <Compile Include="Events\Entity\FormCollection.cs" />
-    <Compile Include="Events\Sets\Forms.cs" />
-    <Compile Include="Extensions\RestSharpExtensions.cs" />
-    <Compile Include="Financial\Entity\BatchCollection.cs" />
-    <Compile Include="Financial\Entity\Import\Batch.cs" />
-    <Compile Include="Entity\Error.cs" />
-    <Compile Include="Financial\Entity\Import\Lookup.cs" />
-    <Compile Include="Financial\Entity\Import\Transaction.cs" />
-    <Compile Include="Financial\Entity\Import\TransactionDetail.cs" />
-    <Compile Include="Entity\Lookup.cs" />
-    <Compile Include="Entity\LookupType.cs" />
-    <Compile Include="Entity\LookupTypeCollection.cs" />
-    <Compile Include="Entity\Parameter.cs" />
-    <Compile Include="Entity\Request.cs" />
-    <Compile Include="Events\Entity\Calendar.cs" />
-    <Compile Include="Events\Entity\CalendarCollection.cs" />
-    <Compile Include="Events\Entity\Exception.cs" />
-    <Compile Include="Events\Entity\Guest.cs" />
-    <Compile Include="Events\Entity\Location.cs" />
-    <Compile Include="Events\Entity\EventCollection.cs" />
-    <Compile Include="Events\Entity\Event.cs" />
-    <Compile Include="Events\Entity\Registration.cs" />
-    <Compile Include="Events\Entity\RegistrationForm.cs" />
-    <Compile Include="Events\Entity\Setup.cs" />
-    <Compile Include="Events\QueryObject\CalendarQO.cs" />
-    <Compile Include="Events\QueryObject\ProfileQO.cs" />
-    <Compile Include="Events\Sets\Calendar.cs" />
-    <Compile Include="Events\Sets\Profiles.cs" />
-    <Compile Include="Exceptions\GenericException.cs" />
-    <Compile Include="Exceptions\PropertyNotAllowedException.cs" />
-    <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="Financial\Entity\Account.cs" />
-    <Compile Include="Financial\Entity\AccountCollection.cs" />
-    <Compile Include="Financial\Entity\OnlineGift.cs" />
-    <Compile Include="Financial\QueryObject\BatchQO.cs" />
-    <Compile Include="Financial\Sets\Accounts.cs" />
-    <Compile Include="Financial\Sets\Batches.cs" />
-    <Compile Include="Financial\Sets\OnlineGifts.cs" />
-    <Compile Include="Groups\Entity\GroupParticipantGroup.cs" />
-    <Compile Include="Groups\Entity\Group.cs" />
-    <Compile Include="Groups\Entity\GroupCollection.cs" />
-    <Compile Include="Groups\Entity\GroupParticipant.cs" />
-    <Compile Include="Groups\Entity\Participant.cs" />
-    <Compile Include="Groups\Entity\PublicGroup.cs" />
-    <Compile Include="Groups\Entity\GroupParticipantCollection.cs" />
-    <Compile Include="Groups\Entity\PublicGroupCollection.cs" />
-    <Compile Include="Groups\QueryObject\GroupParticipantQO.cs" />
-    <Compile Include="Groups\QueryObject\GroupProfileQO.cs" />
-    <Compile Include="Groups\QueryObject\PublicGroupQO.cs" />
-    <Compile Include="Groups\Sets\Profiles.cs" />
-    <Compile Include="Groups\Sets\GroupParticipants.cs" />
-    <Compile Include="Groups\Sets\PublicGroups.cs" />
-    <Compile Include="People\Entity\Ability.cs" />
-    <Compile Include="People\Entity\Address.cs" />
-    <Compile Include="People\Entity\Campus.cs" />
-    <Compile Include="People\Entity\CampusCollection.cs" />
-    <Compile Include="People\Entity\Country.cs" />
-    <Compile Include="People\Entity\CustomField.cs" />
-    <Compile Include="People\Entity\CustomFieldCollection.cs" />
-    <Compile Include="People\Entity\Family.cs" />
-    <Compile Include="People\Entity\FamilyCollection.cs" />
-    <Compile Include="People\Entity\FamilyMember.cs" />
-    <Compile Include="People\Entity\HowTheyHeard.cs" />
-    <Compile Include="People\Entity\HowTheyHeardCollection.cs" />
-    <Compile Include="People\Entity\Individual.cs" />
-    <Compile Include="People\Entity\IndividualCollection.cs" />
-    <Compile Include="People\Entity\MergedIndividual.cs" />
-    <Compile Include="People\Entity\MergedIndividualCollection.cs" />
-    <Compile Include="People\Entity\MobileCarrier.cs" />
-    <Compile Include="People\Entity\MobileCarrierCollection.cs" />
-    <Compile Include="People\Entity\Phone.cs" />
-    <Compile Include="People\Entity\UserDefinedDateField.cs" />
-    <Compile Include="People\Entity\UserDefinedField.cs" />
-    <Compile Include="People\Entity\UserDefinedFieldCollection.cs" />
-    <Compile Include="People\Entity\UserDefinedPulldownField.cs" />
-    <Compile Include="People\Entity\UserDefiniedTextField.cs" />
-    <Compile Include="People\Enum\FamilyPosition.cs" />
-    <Compile Include="People\QueryObject\FamilyQO.cs" />
-    <Compile Include="People\QueryObject\IndividualQO.cs" />
-    <Compile Include="People\Sets\Abilities.cs" />
-    <Compile Include="People\Sets\Campuses.cs" />
-    <Compile Include="People\Sets\CustomFields.cs" />
-    <Compile Include="People\Sets\Families.cs" />
-    <Compile Include="People\Sets\HowTheyHeard.cs" />
-    <Compile Include="People\Sets\Individuals.cs" />
-    <Compile Include="People\Sets\MembershipTypes.cs" />
-    <Compile Include="People\Sets\MergedIndividuals.cs" />
-    <Compile Include="People\Sets\MobileCarriers.cs" />
-    <Compile Include="People\Sets\UserDefinedFields.cs" />
-    <Compile Include="Processes\Entity\ProcessIndividualCollection.cs" />
-    <Compile Include="Processes\Entity\ProcessIndividual.cs" />
-    <Compile Include="Processes\Entity\Process.cs" />
-    <Compile Include="Processes\Entity\ProcessCollection.cs" />
-    <Compile Include="Processes\Entity\ProcessQueue.cs" />
-    <Compile Include="Processes\Entity\ProcessQueueCollection.cs" />
-    <Compile Include="Processes\Entity\QueueCollection.cs" />
-    <Compile Include="Processes\Entity\QueueManager.cs" />
-    <Compile Include="Processes\Entity\QueueManagerCollection.cs" />
-    <Compile Include="Processes\QueryObject\ProcessQO.cs" />
-    <Compile Include="Processes\QueryObject\QueueManagerQO.cs" />
-    <Compile Include="Processes\Sets\Processes.cs" />
-    <Compile Include="Processes\Sets\QueueManagers.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryObject.cs" />
-    <Compile Include="Entity\Response.cs" />
-    <Compile Include="Realms\BaseRealm.cs" />
-    <Compile Include="Realms\EventsRealm.cs" />
-    <Compile Include="Realms\FinancialRealm.cs" />
-    <Compile Include="Realms\GroupsRealm.cs" />
-    <Compile Include="Realms\PeopleRealm.cs" />
-    <Compile Include="Realms\ProcessRealm.cs" />
-    <Compile Include="Util\FormValuesBuilder.cs" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>106.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.4.0</Version>
+    </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <Folder Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  
 </Project>
